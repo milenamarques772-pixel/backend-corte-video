@@ -23,7 +23,7 @@ app.post("/cortar", upload.single("video"), (req, res) => {
 
   const output = "corte-${Date.now()}.mp4";
 
-  const comando = ffmpeg -i ${req.file.path} -ss ${inicio} -t ${duracao} -c copy ${output};
+  const comando = ´ ffmpeg -i ${req.file.path} -ss ${inicio} -t ${duracao} -c copy ${output}´;
 
   exec(comando, (erro) => {
     if (erro) {
@@ -39,8 +39,9 @@ app.post("/cortar", upload.single("video"), (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(Servidor rodando na porta ${PORT});
+  console.log(´Servidor rodando na porta ${PORT}´);
 });
+
 
 
 
