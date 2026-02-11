@@ -21,7 +21,7 @@ app.post("/cortar", upload.single("video"), (req, res) => {
     return res.status(400).json({ erro: "Vídeo não enviado" });
   }
 
-  const output = corte-${Date.now()}.mp4;
+  const output = 'corte-${Date.now()}.mp4';
 
   const comando = ffmpeg -i ${req.file.path} -ss ${inicio} -t ${duracao} -c copy ${output};
 
@@ -42,3 +42,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Servidor rodando na porta " + PORT);
 });
+
